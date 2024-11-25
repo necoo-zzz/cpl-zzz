@@ -1,6 +1,3 @@
-//
-// Created by Ye on 24-11-25.
-//
 #include <stdio.h>
 
 #define MAX_SIZE 10005
@@ -43,41 +40,30 @@ int main() {
                 switch(s[i]){
                 case ')':
                     if (top != -1){
-                        if (stack[top] == '('){
+                        if (stack[top] == '(')
                             Pop();
-                        }
-                        else
-                            printf("False\n");
                     }
                     break;
                 case ']':
                     if (top != -1){
-                        if (stack[top] == '['){
+                        if (stack[top] == '[')
                             Pop();
-                        }
-                        else
-                            printf("False\n");
                     }
                     break;
                 case '}':
                     if (top != -1){
-                        if (stack[top] == '{'){
+                        if (stack[top] == '{')
                             Pop();
-                        }
-                        else
-                            printf("False\n");
                     }
                     break;
-                default:
-                    printf("False\n");
-                    break;
+                default: break;
                 }
             }
             i++;
         }
         if (a == 1 && top == -1){
             printf("True\n");
-        }
+        }else printf("False\n");
         Clear();
     }
     return 0;
