@@ -30,18 +30,14 @@ int main() {
     scanf("%d", &T);
 
     for (int k = 0; k < T; k++){
-        printf("k = %d\n", k);
         char s[10005];
         scanf("%s", s);
 
         int i = 0;
         int a = 0;
         while(s[i] != '\0'){
-            printf("i = %d\n", i);
             if (s[i] == '(' || s[i] == '[' || s[i] == '{'){
                 Push(s[i]);
-                printf("push\n");
-                printf("top = %d\n", top);
                 a = 1;
             }else{
                 switch(s[i]){
@@ -49,46 +45,40 @@ int main() {
                     if (top != -1){
                         if (stack[top] == '('){
                             Pop();
-                            printf("pop')'\n");
-                            printf("top = %d\n", top);
                         }
                         else
-                            printf("False 1\n");
+                            printf("False\n");
                     }
                     break;
                 case ']':
                     if (top != -1){
                         if (stack[top] == '['){
                             Pop();
-                            printf("pop']'\n");
-                            printf("top = %d\n", top);
                         }
                         else
-                            printf("False 2\n");
+                            printf("False\n");
                     }
                     break;
                 case '}':
                     if (top != -1){
                         if (stack[top] == '{'){
                             Pop();
-                            printf("pop'}'\n");
-                            printf("top = %d\n", top);
                         }
                         else
-                            printf("False 3\n");
+                            printf("False\n");
                     }
                     break;
                 default:
-                    printf("False 4\n");
+                    printf("False\n");
                     break;
                 }
             }
             i++;
         }
-        printf("a = %d ; top = %d\n", a, top);
         if (a == 1 && top == -1){
             printf("True\n");
         }
+        Clear();
     }
     return 0;
 }
