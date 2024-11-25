@@ -1,10 +1,6 @@
-//
-// Created by Ye on 24-11-25.
-//
 #include <stdio.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include <string.h>
 
 char ***map;
 const int vectors[6][3] = {
@@ -45,14 +41,13 @@ int main(void){
                     if (QOrNot(map, n, i, j, k)){
                         int count1 = NumberOfMines(map, n, i, j, k, 1);
                         int count2 = NumberOfMines(map, n, i, j, k, 2);
-                        if (num
-                        != count2){
+                        if (num != count2){
                             if(num != count1){
-                            if(isValid){
-                                printf("invalid\n");
+                                if(isValid){
+                                    printf("invalid\n");
+                                }
+                                isValid = false;
                             }
-                            isValid = false;}
-                            printf("%d %d %d\n", i, j, k);
                     }
                     if (num == count2) isMine = true;
                     }else{
@@ -62,7 +57,6 @@ int main(void){
                                 printf("invalid\n");
                             }
                             isValid = false;
-                            printf("%d %d %d\n", i, j, k);
                         }
                     }
                 }else if (map[i][j][k] == '?'){
